@@ -1,0 +1,124 @@
+input_file: input.xlsx
+features:
+  rank:
+    name_raw: "rank"
+    type: "integer"
+  item_id:
+    name_raw: "itemId"
+    type: "character"
+  title:
+    name_raw: "title"
+    type: "character"
+  subtitle:
+    name_raw: "subtitle"
+    type: "character"
+    replace_na: ""
+  category_id:
+    name_raw: "primaryCategory.categoryId"
+    type: "factor"
+  category_name:
+    name_raw: "primaryCategory.categoryName"
+    type: "factor"
+  product_id:
+    name_raw: "productId"
+    type: "factor"
+  url_listing:
+    name_raw: "viewItemURL"
+    type: "character"
+  listing_type:
+    name_raw: "listingInfo.listingType"
+    type: "factor"
+    relevel:
+      Fixed:
+        - "StoreInventory"
+        - "FixedPrice"
+      Auction:
+        - "Auction"
+        - "AuctionWithBIN"
+  time_start:
+    name_raw: "listingInfo.startTime"
+    type: "date"
+  time_end:
+    name_raw: "listingInfo.endTime"
+    type: "date"
+  condition:
+    name_raw: "condition.conditionDisplayName"
+    type: "factor"
+    relevel:
+      New: 
+        - "New"
+        - "New other (see details)"
+        - "Open box"
+        - "New without tags"
+        - "New without box"
+        - "Brand new"
+        - "New with defects"
+      Like New:
+        - "Like New"
+        - "Manufacturer refurbished"
+        - "Seller refurbished"
+        - "Remanufactured"
+        - "Retread"
+        - "Certified pre-owned"
+      Used: 
+        - "Used"
+        - "Very Good"
+        - "Good"
+        - "Acceptable"
+      Broken: "For parts or not working"
+  state:
+    name_raw: "sellingStatus.sellingState"
+    type: "factor"
+    relevel:
+      Active: "Active"
+      Sold: 
+        - "EndedWithSales"
+        - "Ended"
+      No Sale: 
+        - "EndedWithoutSales"
+        - "Canceled"
+  price_current:
+    name_raw: "sellingStatus.convertedCurrentPrice"
+    type: "numeric"
+  country:
+    name_raw: "country"
+    type: "factor"
+    filter_in:
+      - "US"
+      - "CN"
+  location:
+    name_raw: "location"
+    type: "character"
+  shipping_type:
+    name_raw: "shippingInfo.shippingType"
+    type: "factor"
+    relevel:
+      Free: "Free"
+      Calculated: 
+        - "Calculated"
+        - "Freight"
+      Flat:
+        - "Flat"
+        - "FlatDomesticCalculatedInternational"
+        - "FreightFlat"
+      None: 
+        - "FreePickup"
+        - "NotSpecified"
+  shipping_cost:
+    name_raw: "shippingInfo.shippingServiceCost"
+    type: "numeric"
+  flag_buyitnow:
+    name_raw: "listingInfo.buyItNowAvailable"
+    type: "logical"
+    replace_na: FALSE
+  price_buyitnow:
+    name_raw: "listingInfo.convertedBuyItNowPrice"
+    type: "numeric"
+  count_watching:
+    name_raw: "listingInfo.watchCount"
+    type: "integer"
+    replace_na: 0
+  count_bids:
+    name_raw: "sellingStatus.bidCount"
+    type: "integer"
+    replace_na: 0

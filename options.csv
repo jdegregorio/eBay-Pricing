@@ -1,0 +1,17 @@
+state,sold,type,condition
+active,N,auction,new
+active,N,auction,used
+active,N,fixed,new
+active,N,fixed,used
+active,Y,auction,new
+active,Y,auction,used
+active,Y,fixed,new
+active,Y,fixed,used
+complete,N,auction,new
+complete,N,auction,used
+complete,N,fixed,new
+complete,N,fixed,used
+complete,Y,auction,new
+complete,Y,auction,used
+complete,Y,fixed,new
+complete,Y,fixed,used
